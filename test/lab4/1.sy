@@ -2,8 +2,13 @@ int a;
 
 int main()
 {
-    int a;
+    int a,f,h,o;
+    int s[30];
     a = 1 + 2;
+    f = 3.23 * 3.5E-10;
+    h = 0x2f;
+    o = 035;
+    a++;
     if(a < 5)
         return 1;
     return 0;

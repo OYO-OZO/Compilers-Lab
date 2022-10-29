@@ -39,11 +39,8 @@
     int IDcount=0;
     vector <int>a;
 
-    void DEBUG_FOR_LAB4(std::string s,bool boolflag=0){
-        std::string DEBUG_INFO = "[DEBUG LAB4]: \t" + s + "\t" + to_string(yylineno)+"\t" + to_string(offset) ;
-        if (boolflag){
-        DEBUG_INFO = DEBUG_INFO + "\t" + yytext;
-        }
+    void DEBUG_FOR_LAB4(std::string s){
+        std::string DEBUG_INFO = "[DEBUG LAB4]: \t" + s + "\t" + yytext + "\t" + to_string(yylineno)+"\t" + to_string(offset) ;
         DEBUG_INFO = DEBUG_INFO + "\n";
         offset += strlen(yytext);
         fputs(DEBUG_INFO.c_str(), yyout);
@@ -80,21 +77,21 @@ COMMENT \/\/[^\n]*
     *   Q2: What is "INT" actually?
     */
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("INT\tint");
+        DEBUG_FOR_LAB4("INT\t");
     #else
         return INT;
     #endif
 }
 "void" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("VOID\tvoid");
+        DEBUG_FOR_LAB4("VOID\t");
     #else
         return VOID;
     #endif
 }
 "float" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("FLOAT\tfloat");
+        DEBUG_FOR_LAB4("FLOAT\t");
     #else
         return FLOAT;
     #endif
@@ -102,21 +99,21 @@ COMMENT \/\/[^\n]*
 
 "const" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("CONST\tconst");
+        DEBUG_FOR_LAB4("CONST\t");
     #else
         return CONST;
     #endif
 }
 "if" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("IF\tif");
+        DEBUG_FOR_LAB4("IF\t");
     #else
         return IF;
     #endif
 };
 "else" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("ELSE\telse");
+        DEBUG_FOR_LAB4("ELSE\t");
 
     #else
         return ELSE;
@@ -124,7 +121,7 @@ COMMENT \/\/[^\n]*
 };
 "do" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("DO\tdo");
+        DEBUG_FOR_LAB4("DO\t");
 
     #else
         return DO;
@@ -132,7 +129,7 @@ COMMENT \/\/[^\n]*
 }
 "while" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("WHILE\twhile");
+        DEBUG_FOR_LAB4("WHILE\t");
 
     #else
         return WHILE;
@@ -140,7 +137,7 @@ COMMENT \/\/[^\n]*
 }
 "for" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("FOR\tfor");
+        DEBUG_FOR_LAB4("FOR\t");
 
     #else
         return FOR;
@@ -148,7 +145,7 @@ COMMENT \/\/[^\n]*
 }
 "switch" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("SWITCH\tswitch");
+        DEBUG_FOR_LAB4("SWITCH\t");
 
     #else
         return SWITCH;
@@ -156,7 +153,7 @@ COMMENT \/\/[^\n]*
 }
 "case" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("CASE\tcase");
+        DEBUG_FOR_LAB4("CASE\t");
 
     #else
         return CASE;
@@ -164,7 +161,7 @@ COMMENT \/\/[^\n]*
 }
 "default" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("DEFAULT\tdefault");
+        DEBUG_FOR_LAB4("DEFAULT\t");
 
     #else
         return DEFAULT;
@@ -172,7 +169,7 @@ COMMENT \/\/[^\n]*
 }
 "break" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("BREAK\tbreak");
+        DEBUG_FOR_LAB4("BREAK\t");
 
     #else
         return BREAK;
@@ -180,7 +177,7 @@ COMMENT \/\/[^\n]*
 }
 "continue" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("CONTINUE\tcontinue");
+        DEBUG_FOR_LAB4("CONTINUE\t");
 
     #else
         return CONTINUE;
@@ -189,7 +186,7 @@ COMMENT \/\/[^\n]*
 
 "return" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("RETURN\treturn");
+        DEBUG_FOR_LAB4("RETURN\t");
 
     #else
         return RETURN;
@@ -198,7 +195,7 @@ COMMENT \/\/[^\n]*
 
 "=" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("ASSIGN\t=");
+        DEBUG_FOR_LAB4("ASSIGN\t");
 
     #else
         return ASSIGN;
@@ -206,7 +203,7 @@ COMMENT \/\/[^\n]*
 }
 "==" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("EQUAL\t==");
+        DEBUG_FOR_LAB4("EQUAL\t");
 
     #else
         return EQUAL;
@@ -214,7 +211,7 @@ COMMENT \/\/[^\n]*
 }
 "!=" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("NOTEQUAL\t!=");
+        DEBUG_FOR_LAB4("NOTEQUAL\t");
 
     #else
         return NOTEQUAL;
@@ -222,7 +219,7 @@ COMMENT \/\/[^\n]*
 }
 "<=" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("LESSEQUAL\t<=");
+        DEBUG_FOR_LAB4("LESSEQUAL\t");
 
     #else
         return LESSEQUAL;
@@ -230,7 +227,7 @@ COMMENT \/\/[^\n]*
 }
 ">=" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("GREATEREQUAL\t<=");
+        DEBUG_FOR_LAB4("GREATEREQUAL\t");
 
     #else
         return GREATEREQUAL;
@@ -238,7 +235,7 @@ COMMENT \/\/[^\n]*
 }
 "<" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("LESS\t<");
+        DEBUG_FOR_LAB4("LESS\t");
 
     #else
         return LESS;
@@ -246,7 +243,7 @@ COMMENT \/\/[^\n]*
 }
 ">" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("GREATER\t>");
+        DEBUG_FOR_LAB4("GREATER\t");
 
     #else
         return GREATER;
@@ -255,7 +252,7 @@ COMMENT \/\/[^\n]*
 
 "+" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("ADD\t+");
+        DEBUG_FOR_LAB4("ADD\t");
 
     #else
         return ADD;
@@ -263,7 +260,7 @@ COMMENT \/\/[^\n]*
 }
 "-" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("SUB\t-");
+        DEBUG_FOR_LAB4("SUB\t");
 
     #else
         return SUB;
@@ -271,7 +268,7 @@ COMMENT \/\/[^\n]*
 }
 "*" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("MUL\t*");
+        DEBUG_FOR_LAB4("MUL\t");
 
     #else
         return MUL;
@@ -279,7 +276,7 @@ COMMENT \/\/[^\n]*
 }
 "/" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("DIV\t/");
+        DEBUG_FOR_LAB4("DIV\t");
 
     #else
         return DIV;
@@ -287,7 +284,7 @@ COMMENT \/\/[^\n]*
 }
 "%" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("MOD\t%");
+        DEBUG_FOR_LAB4("MOD\t");
 
     #else
         return MOD;
@@ -295,7 +292,7 @@ COMMENT \/\/[^\n]*
 }
 "&&" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("AND\t&&");
+        DEBUG_FOR_LAB4("AND\t");
 
     #else
         return AND;
@@ -303,7 +300,7 @@ COMMENT \/\/[^\n]*
 }
 "||" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("OR\t||");
+        DEBUG_FOR_LAB4("OR\t");
 
     #else
         return OR;
@@ -311,7 +308,7 @@ COMMENT \/\/[^\n]*
 }
 "!" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("NOT\t!");
+        DEBUG_FOR_LAB4("NOT\t");
 
     #else
         return NOT;
@@ -319,7 +316,7 @@ COMMENT \/\/[^\n]*
 }
 "++" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("INC\t!");
+        DEBUG_FOR_LAB4("INC\t");
 
     #else
         return INC;
@@ -327,7 +324,7 @@ COMMENT \/\/[^\n]*
 }
 "--" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("DEC\t!");
+        DEBUG_FOR_LAB4("DEC\t");
 
     #else
         return DEC;
@@ -336,15 +333,15 @@ COMMENT \/\/[^\n]*
 
 ";" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("SEMICOLON\t;");
+        DEBUG_FOR_LAB4("SEMI\t");
 
     #else
-        return SEMICOLON;
+        return SEMI;
     #endif
 }
 "," {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("COMMA\t,");
+        DEBUG_FOR_LAB4("COMMA\t");
 
     #else
         return COMMA;
@@ -353,7 +350,7 @@ COMMENT \/\/[^\n]*
 
 "(" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("LP\t(");
+        DEBUG_FOR_LAB4("LP\t");
 
     #else
         return LP;
@@ -361,7 +358,7 @@ COMMENT \/\/[^\n]*
 }
 ")" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("RP\t)");
+        DEBUG_FOR_LAB4("RP\t");
 
     #else
     return RP;
@@ -373,7 +370,7 @@ COMMENT \/\/[^\n]*
         a.push_back(scopes);
         l_scope++;
 
-        DEBUG_FOR_LAB4("LC\t{");
+        DEBUG_FOR_LAB4("LC\t");
 
     #else
         return LC;
@@ -383,7 +380,7 @@ COMMENT \/\/[^\n]*
     #ifdef ONLY_FOR_LEX
         a.pop_back();
         r_scope++;
-      DEBUG_FOR_LAB4("RC\t}");
+      DEBUG_FOR_LAB4("RC\t");
     #else
         return RC;
     #endif
@@ -391,7 +388,7 @@ COMMENT \/\/[^\n]*
 
 "[" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("LB\t}");
+        DEBUG_FOR_LAB4("LB\t");
 
     #else
         return LB;
@@ -399,7 +396,7 @@ COMMENT \/\/[^\n]*
 }
 "]" {
     #ifdef ONLY_FOR_LEX
-        DEBUG_FOR_LAB4("RB\t}");
+        DEBUG_FOR_LAB4("RB\t");
 
     #else
         return RB;
@@ -419,7 +416,7 @@ offset = 0;}
 
 {FLOATP} {
     #ifdef ONLY_FOR_LEX
-     DEBUG_FOR_LAB4("FLOATNUMBER\t}",1);
+     DEBUG_FOR_LAB4("FLOATNUMBER\t");
     #else
         return FLOATNUMBER;
     #endif
@@ -428,7 +425,7 @@ offset = 0;}
 {FLOATE} {
     #ifdef ONLY_FOR_LEX
 
-    DEBUG_FOR_LAB4("FLOATNUMBER\t}",1);
+    DEBUG_FOR_LAB4("FLOATNUMBER\t");
     #else
         return FLOATNUMBER;
     #endif
@@ -436,7 +433,7 @@ offset = 0;}
 
 {INT_DEC} {
     #ifdef ONLY_FOR_LEX
-    DEBUG_FOR_LAB4("NUMBER\t}",1);
+    DEBUG_FOR_LAB4("NUMBER\t");
     #else
         return INTEGER;
     #endif
@@ -513,7 +510,7 @@ fprintf(yyout,"%s\t%d\t%d\t%s\n","[DEBUG LAB4]: \tNUMBER",yylineno,offset,to_str
             idnum = id_count;
         }
 
-           fprintf(yyout,"%s\t%d\t%d\t%s\t%d\n","[DEBUG LAB4]: \tID",yylineno,offset,yytext,idnum);
+           fprintf(yyout,"%s\t%s\t%d\t%d\t\t%d\n","[DEBUG LAB4]: \tID\t",yytext,yylineno,offset,idnum);
                    offset += strlen(yytext);
 
     #else
